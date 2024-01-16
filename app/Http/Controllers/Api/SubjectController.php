@@ -13,7 +13,7 @@ class SubjectController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
+    { 
         $user = $request->user();
         $subjects = Subject::where('lecturer_id', '=', $user->id)->get();
         return SubjectResource::collection(Subject::all()->load('subject')) ;

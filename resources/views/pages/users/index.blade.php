@@ -90,7 +90,7 @@
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
                                                                 value="{{ csrf_token() }}" />
-                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete" onclick="return confirm('Are you sure you want to delete this user?')">
                                                                 <i class="fas fa-times"></i> Delete
                                                             </button>
                                                         </form>

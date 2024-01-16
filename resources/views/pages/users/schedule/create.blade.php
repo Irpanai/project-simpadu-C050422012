@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'New Subject')
+@section('title', 'New Schedule')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -10,106 +10,88 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>New Subject</h1>
+                <h1>New Schedule</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Users</a></div>
-                    <div class="breadcrumb-item">New Subject</div>
+                    <div class="breadcrumb-item"><a href="#">Schedules</a></div>
+                    <div class="breadcrumb-item">New Schedule</div>
                 </div>
             </div>
 
             <div class="section-body">
 
                 <div class="card">
-                    <form action="{{ route('subject.store') }}" method="POST">
+                    <form action="{{ route('schedule.store') }}" method="POST">
                         @csrf
                         <div class="card-header">
-                            <h4>New Subject</h4>
+                            <h4>New Schedules</h4>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Title</label>
+                                <label>Subject</label>
                                 <input type="text"
-                                    class="form-control @error('title')
+                                    class="form-control @error('subject_id')
                                     is-invalid
                                 @enderror"
-                                    name="title">
-                                @error('title')
+                                    name="subject_id">
+                                @error('subject_id')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Lecturer</label>
-                                <input type="text"
-                                    class="form-control @error('lecturer_id')
+                                <label>Day</label>
+                                <input type="hari"
+                                    class="form-control @error('hari')
                                     is-invalid
                                 @enderror"
-                                    name="lecturer_id">
-                                @error('lecturer_id')
+                                    name="hari">
+                                @error('hari')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Semester</label>
-                                <input type="text"
-                                    class="form-control @error('semester')
+                                <label>Start Time</label>
+                                <input type="jam_mulai"
+                                    class="form-control @error('jam_mulai')
                                     is-invalid
                                 @enderror"
-                                    name="semester">
-                                @error('semester')
+                                    name="jam_mulai">
+                                @error('jam_mulai')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Academic Year</label>
-                                <input type="text"
-                                    class="form-control @error('academic_year')
+                                <label>End Time</label>
+                                <input type="jam_selesai"
+                                    class="form-control @error('jam_selesai')
                                     is-invalid
                                 @enderror"
-                                    name="academic_year">
-                                @error('academic_year')
+                                    name="jam_selesai">
+                                @error('jam_selesai')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>SKS</label>
-                                <input type="text"
-                                    class="form-control @error('sks')
+                                <label>Room</label>
+                                <input type="ruangan"
+                                    class="form-control @error('ruangan')
                                     is-invalid
                                 @enderror"
-                                    name="sks">
-                                @error('sks')
+                                    name="ruangan">
+                                @error('ruangan')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label>Code</label>
-                                <input type="text"
-                                    class="form-control @error('code')
-                                    is-invalid
-                                @enderror"
-                                    name="code">
-                                @error('code')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group mb-0">
-                                <label>Description</label>
-                                <textarea class="form-control" data-height="150" name="description"></textarea>
-                            </div>
-                        </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>
                         </div>

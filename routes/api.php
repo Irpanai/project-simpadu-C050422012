@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\SubjectController;
+use App\Http\Controllers\Api\AsuransiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,8 +26,11 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth:sanctum');
 
+Route::apiResource('subjects', SubjectController::class)
+    ->middleware('auth:sanctum');
+
 Route::apiResource('schedules', ScheduleController::class)
     ->middleware('auth:sanctum');
 
-Route::apiResource('subjects', SubjectController::class)
+Route::apiResource('asuransis', AsuransiController::class)
     ->middleware('auth:sanctum');

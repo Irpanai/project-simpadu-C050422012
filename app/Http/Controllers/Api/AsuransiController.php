@@ -2,21 +2,27 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Schedule;
-use App\Http\Resources\ScheduleResource;
+use App\Models\Asuransi;
+use App\Http\Resources\AsuransiResource;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ScheduleController extends Controller
+class AsuransiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+
+     public function index(Request $request)
+     {
+         $asuransi = Asuransi::find('id');
+         return AsuransiResource::collection(Asuransi::all()->load('Asuransi'));
+     }
+
+    public function show($id)
     {
-        $user = $request->user();
-        $schedules = Schedule::where('subject_id', '=', $user->id)->get();
-        return ScheduleResource::collection($schedules->load('subject'));
+        $asuransi = Asuransi::find($id);
+        return response()->json($asuransi);
     }
 
     /**
@@ -30,10 +36,6 @@ class ScheduleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
